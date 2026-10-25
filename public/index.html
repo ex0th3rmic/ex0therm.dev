@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>ex0therm</title>
+  <meta name="description" content="Releasing energy since 2017." />
+  <meta name="theme-color" content="#07060a" />
+  <meta property="og:title" content="ex0therm" />
+  <meta property="og:description" content="Releasing energy since 2017." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2307060a'/%3E%3Ccircle cx='16' cy='19' r='6' fill='%23ff6a3d'/%3E%3Ccircle cx='16' cy='19' r='3' fill='%23ffd166'/%3E%3C/svg%3E" />
+  <style>
+    :root {
+      --bg: #07060a;
+      --t: #ece6e0;
+      --t2: #9b928c;
+      --t3: #5f5853;
+      --ember: #ff6a3d;
+      --glow: #ffb347;
+      --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--t);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+    }
+    canvas { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+    .heat {
+      position: fixed; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(60% 45% at 50% 108%, rgba(255, 106, 61, 0.28), transparent 70%),
+        radial-gradient(35% 25% at 50% 112%, rgba(255, 209, 102, 0.22), transparent 70%);
+      animation: breathe 9s ease-in-out infinite;
+    }
+    @keyframes breathe { 0%, 100% { opacity: 0.85; } 50% { opacity: 1; } }
+    main {
+      position: relative;
+      min-height: 100%;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      padding: max(24px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
+    }
+    .center {
+      display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+      padding-bottom: 10vh;
+    }
+    h1 {
+      margin: 0;
+      font-family: var(--mono);
+      font-weight: 500;
+      font-size: clamp(28px, 4.2vw, 44px);
+      letter-spacing: 0.22em;
+      color: var(--t);
+      text-indent: 0.22em; /* balances the trailing letter-spacing */
+      animation: rise 1.4s cubic-bezier(.2,.7,.2,1) both;
+    }
+    h1 span { color: var(--ember); }
+    .slogan {
+      margin: 18px 0 0;
+      font-size: clamp(17px, 2.1vw, 22px);
+      color: var(--t2);
+      letter-spacing: 0.01em;
+      animation: rise 1.4s 0.25s cubic-bezier(.2,.7,.2,1) both;
+    }
+    .bio {
+      margin: 48px auto 0;
+      max-width: 44ch;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--t3);
+      animation: rise 1.4s 0.5s cubic-bezier(.2,.7,.2,1) both;
+    }
+    .bio b { color: var(--t2); font-weight: 500; }
+    .links {
+      display: flex; gap: 22px; justify-content: center; flex-wrap: wrap;
+      margin-top: 28px;
+      font-family: var(--mono);
+      font-size: 12.5px;
+      letter-spacing: 0.06em;
+      animation: rise 1.4s 0.7s cubic-bezier(.2,.7,.2,1) both;
+    }
+    .links a { color: var(--t2); text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 2px; transition: color .2s, border-color .2s; }
+    .links a:hover, .links a:focus-visible { color: var(--t); border-color: var(--ember); outline: none; }
+    footer {
+      display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; color: var(--t3);
+    }
+    @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; }
+      canvas { display: none; }
+    }
+    @media (max-width: 480px) {
+      h1 { letter-spacing: 0.16em; text-indent: 0.16em; }
+      .bio { margin-top: 36px; font-size: 14.5px; }
+      .links { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="c" aria-hidden="true"></canvas>
+  <div class="heat" aria-hidden="true"></div>
+  <main>
+    <section class="center">
+      <h1>ex<span>0</span>therm</h1>
+      <p class="slogan">Releasing energy since 2017.</p>
+      <p class="bio">
+        <b>In crypto since the summer of 2017</b>, the week Bitcoin split and Bitcoin Cash was born.
+        Built through every cycle since. The rest is history.
+      </p>
+      <nav class="links" aria-label="Links">
+        <a href="https://github.com/ex0th3rmic" rel="noopener">github / ex0th3rmic</a>
+        <a href="https://pump-mcp.ex0therm.dev" rel="noopener">pump-mcp</a>
+      </nav>
+    </section>
+    <footer>
+      <span>ex0therm.dev</span>
+      <span>Δ H &lt; 0</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduce) return;
+      const c = document.getElementById("c");
+      const ctx = c.getContext("2d");
+      let W, H, dpr, parts = [];
+      const N = () => Math.round(Math.min(220, Math.max(70, (W * H) / 9000)));
+
+      function resize() {
+        dpr = Math.min(2, devicePixelRatio || 1);
+        W = innerWidth; H = innerHeight;
+        c.width = W * dpr; c.height = H * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        const n = N();
+        while (parts.length < n) parts.push(spawn(true));
+        parts.length = n;
+      }
+      function spawn(anywhere) {
+        const x = W * (0.5 + (Math.random() - 0.5) * 0.9);
+        return {
+          x, y: anywhere ? Math.random() * H : H + 10,
+          vx: (Math.random() - 0.5) * 0.15,
+          vy: -(0.25 + Math.random() * 0.6),
+          r: 0.6 + Math.random() * 1.8,
+          life: 0, max: 600 + Math.random() * 900,
+          warm: Math.random(),
+          drift: Math.random() * Math.PI * 2,
+        };
+      }
+      let last = performance.now();
+      function frame(now) {
+        const dt = Math.min(40, now - last) / 16.67; last = now;
+        ctx.clearRect(0, 0, W, H);
+        ctx.globalCompositeOperation = "lighter";
+        for (let i = 0; i < parts.length; i++) {
+          const p = parts[i];
+          p.life += dt;
+          p.drift += 0.012 * dt;
+          p.x += (p.vx + Math.sin(p.drift) * 0.12) * dt;
+          p.y += p.vy * dt;
+          // brighter near the bottom (the reaction), fading as it rises and cools
+          const t = Math.max(0, Math.min(1, 1 - p.y / H));
+          const fade = Math.min(1, p.life / 60) * Math.max(0, 1 - Math.pow(t, 1.6)) * (1 - p.life / p.max);
+          if (fade <= 0 || p.y < -10) { parts[i] = spawn(false); continue; }
+          const warm = p.warm;
+          const r = Math.round(255), g = Math.round(106 + warm * 90), b = Math.round(61 + warm * 40);
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r * (0.8 + t * 0.4), 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${r},${g},${b},${(0.08 + 0.5 * fade).toFixed(3)})`;
+          ctx.fill();
+        }
+        ctx.globalCompositeOperation = "source-over";
+        requestAnimationFrame(frame);
+      }
+      addEventListener("resize", resize, { passive: true });
+      resize();
+      requestAnimationFrame(frame);
+      document.addEventListener("visibilitychange", () => { last = performance.now(); });
+    })();
+  </script>
+</body>
+</html>

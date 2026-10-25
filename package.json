@@ -1,0 +1,13 @@
+{
+  "name": "ex0therm-dev",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Landing page for ex0therm.dev. Static HTML, no build step.",
+  "scripts": {
+    "dev": "wrangler dev --port 8791",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.40.0"
+  }
+}
