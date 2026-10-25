@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="500" viewBox="0 0 1500 500" role="img" aria-label="ex0therm, $EX0: releasing energy since 2017">
+  <defs>
+    <linearGradient id="ring" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#fff1c9"/>
+      <stop offset="0.28" stop-color="#ffb347"/>
+      <stop offset="0.7" stop-color="#ff6a3d"/>
+      <stop offset="1" stop-color="#d9381e"/>
+    </linearGradient>
+    <radialGradient id="floor" cx="0.3" cy="1.25" r="0.75">
+      <stop offset="0" stop-color="#ff6a3d" stop-opacity="0.5"/>
+      <stop offset="0.5" stop-color="#ff6a3d" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#ff6a3d" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="inner" cx="0.5" cy="0.62" r="0.5">
+      <stop offset="0" stop-color="#ff9a4d" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#ff9a4d" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+    <filter id="soft" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+  </defs>
+
+  <rect width="1500" height="500" fill="#07060a"/>
+  <rect width="1500" height="500" fill="url(#floor)"/>
+
+  <!-- the zero, same proportions as the profile picture -->
+  <g transform="translate(330 262)">
+    <ellipse rx="96" ry="128" fill="url(#inner)"/>
+    <ellipse rx="96" ry="128" fill="none" stroke="url(#ring)" stroke-width="44" opacity="0.75" filter="url(#glow)"/>
+    <ellipse rx="96" ry="128" fill="none" stroke="url(#ring)" stroke-width="40"/>
+  </g>
+
+  <!-- embers rising across the banner -->
+  <g fill="#ffb347">
+    <circle cx="372" cy="104" r="4" opacity="0.9" filter="url(#soft)"/><circle cx="372" cy="104" r="3"/>
+    <circle cx="296" cy="88" r="3" opacity="0.7"/>
+    <circle cx="344" cy="60" r="2.4" opacity="0.5"/>
+    <circle cx="610" cy="96" r="2.4" opacity="0.45"/>
+    <circle cx="880" cy="70" r="2" opacity="0.35"/>
+    <circle cx="1120" cy="120" r="2.6" opacity="0.4"/>
+    <circle cx="1310" cy="84" r="2" opacity="0.3"/>
+    <circle cx="760" cy="430" r="2.4" opacity="0.4"/>
+    <circle cx="1240" cy="420" r="2" opacity="0.3"/>
+  </g>
+
+  <!-- wordmark, as on ex0therm.dev -->
+  <g font-family="Menlo, 'SF Mono', Consolas, monospace">
+    <text x="520" y="250" font-size="92" font-weight="500" letter-spacing="18" fill="#ece6e0">ex<tspan fill="#ff6a3d">0</tspan>therm</text>
+    <text x="524" y="322" font-size="40" font-weight="700" letter-spacing="4" fill="#ff6a3d">$EX0</text>
+  </g>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+    <text x="660" y="320" font-size="32" fill="#9b928c">releasing energy since 2017</text>
+  </g>
+  <g font-family="Menlo, 'SF Mono', Consolas, monospace" font-size="18" letter-spacing="1.5" fill="#5f5853">
+    <text x="524" y="384">ex0therm.dev  ·  x.com/ex0therm  ·  ΔH &lt; 0</text>
+  </g>
+</svg>
