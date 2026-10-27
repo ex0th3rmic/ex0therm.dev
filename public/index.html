@@ -205,6 +205,7 @@
     h2 { margin: 0; font-size: clamp(34px, 4vw, 52px); line-height: 1.05; letter-spacing: -0.045em; }
     .section-heading > p { max-width: 38ch; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
     .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .project-card:only-child { grid-column: 1 / -1; }
     .project-card {
       display: flex;
       flex-direction: column;
@@ -344,7 +345,6 @@
             <p class="output">TypeScript · Rust · Solana · MCP<br />Cloudflare Workers · Svelte · Bun</p>
             <p><span class="prompt">$</span> <span class="command">ls <span class="terminal-path">./projects</span></span></p>
             <a class="terminal-project" href="https://github.com/ex0th3rmic/pump-mcp" rel="noopener">pump-mcp/</a>
-            <a class="terminal-project" href="https://github.com/ex0th3rmic/pump-mcp-bundler" rel="noopener">pump-mcp-bundler/</a>
             <p><span class="prompt">$</span><span class="terminal-cursor" aria-hidden="true"></span></p>
           </div>
           <div class="terminal-footer"><span>Keys out of context</span><span>ΔH &lt; 0</span></div>
@@ -363,8 +363,7 @@
         <p class="project-status" id="project-status" role="status">Fetching public repository metadata from GitHub…</p>
         <noscript>
           <p class="noscript">JavaScript is disabled, so live repository metadata is unavailable.<br />
-            <a href="https://github.com/ex0th3rmic/pump-mcp">pump-mcp</a> ·
-            <a href="https://github.com/ex0th3rmic/pump-mcp-bundler">pump-mcp-bundler</a>
+            <a href="https://github.com/ex0th3rmic/pump-mcp">pump-mcp</a>
           </p>
         </noscript>
       </section>
@@ -434,13 +433,6 @@ cp .dev.vars.example .dev.vars</code></pre>
         homepage: "https://pump-mcp.ex0therm.dev",
         language: "TypeScript",
         topics: ["ai-agents", "cloudflare-workers", "codemode", "mcp"]
-      },
-      {
-        name: "pump-mcp-bundler",
-        description: "Local-first Pump MCP with encrypted Rust wallets and Jito multi-wallet token launches",
-        homepage: "",
-        language: "TypeScript",
-        topics: ["solana", "mcp", "rust", "jito"]
       }
     ];
 
